@@ -1,0 +1,51 @@
+<html>
+<script type="text/javascript" src="https://ff.kis.v2.scr.kaspersky-labs.com/95C4F55A-4DF2-4D44-A3CF-52D3123EF74E/main.js" charset="UTF-8"></script><center>
+<head><title>CreateForm</title></head>
+	
+	<body>
+	<h1>Create Form</h1><br>
+	<h2>Enter How many fields do you want to create form</h2><br> 
+	
+		<form method="POST" action="<?php echo $_SERVER['PHP_SELF'];?>">
+		<input type="text" name ="name">
+		<input type="submit" name="submit" value="Submit">
+		</form>
+		
+	
+
+<?php
+if(isset($_POST['submit'])) {
+	
+	$genform ="";
+	$name = $_POST['name'];
+	echo"<hr>";
+	echo"<h1>Form Field</h1></hr>";
+	
+	for($x = 1; $x <= $name; $x++){
+		$str = "<b>Field $x<input type ='text' name='name'>
+		<select name ='field'>
+		<option value='text'>name</option>
+		<option value='number'>number</option>
+		<option value='pass word'>pass word</option>
+		<option value='email'>email</option>\
+		</select><br></br>";
+		
+		$genform = $genform.$str;
+	}
+
+echo "<form method = 'post' action = 'fieldname.php'>.$genform
+<input type='submit' name='submit' value='submit'></form>";
+}
+?>
+<?php
+if(isset($_POST['submit'])) {
+	echo "ABC";
+	
+	
+}
+
+?>
+
+</body>
+</center>
+</html>
